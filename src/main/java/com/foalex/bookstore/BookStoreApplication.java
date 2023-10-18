@@ -1,8 +1,8 @@
 package com.foalex.bookstore;
 
-import java.math.BigDecimal;
 import com.foalex.bookstore.model.Book;
 import com.foalex.bookstore.service.BookService;
+import java.math.BigDecimal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

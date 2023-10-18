@@ -1,8 +1,8 @@
 package com.foalex.bookstore.repository.impl;
 
-import java.util.List;
 import com.foalex.bookstore.model.Book;
 import com.foalex.bookstore.repository.BookRepository;
+import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

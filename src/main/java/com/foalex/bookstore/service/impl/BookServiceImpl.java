@@ -1,9 +1,9 @@
 package com.foalex.bookstore.service.impl;
 
-import java.util.List;
 import com.foalex.bookstore.model.Book;
 import com.foalex.bookstore.repository.BookRepository;
 import com.foalex.bookstore.service.BookService;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,7 +1,7 @@
 package com.foalex.bookstore.repository;
 
-import java.util.List;
 import com.foalex.bookstore.model.Book;
+import java.util.List;
 
 public interface BookRepository {
     Book save(Book book);
