@@ -33,5 +33,4 @@ public class BookStoreApplication {
             bookService.findAll().forEach(System.out::println);
         };
     }
-
 }
