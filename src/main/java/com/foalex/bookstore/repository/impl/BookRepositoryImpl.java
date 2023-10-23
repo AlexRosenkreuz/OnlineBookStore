@@ -4,6 +4,7 @@ import com.foalex.bookstore.exception.DataProcessingException;
 import com.foalex.bookstore.model.Book;
 import com.foalex.bookstore.repository.BookRepository;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -32,5 +33,12 @@ public class BookRepositoryImpl implements BookRepository {
         } catch (Exception e) {
             throw new DataProcessingException("Can't load list of books", e);
         }
+    }
+
+    @Override
+    public Optional<Book> findById(Long id) {
+        return sessionFactory.fromSession(
+                session -> Optional.ofNullable(session.find(Book.class, id))
+        );
     }
 }
