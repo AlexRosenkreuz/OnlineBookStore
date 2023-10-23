@@ -5,6 +5,7 @@ import com.foalex.bookstore.model.Book;
 import com.foalex.bookstore.repository.BookRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -25,10 +26,8 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public List<Book> findAll() {
-        try {
-            return sessionFactory.fromSession(
-                    session -> session.createQuery("from Book", Book.class).getResultList()
-            );
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("from Book", Book.class).getResultList();
         } catch (Exception e) {
             throw new DataProcessingException("Can't load list of books", e);
         }
