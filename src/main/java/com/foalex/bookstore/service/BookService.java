@@ -1,10 +1,13 @@
 package com.foalex.bookstore.service;
 
-import com.foalex.bookstore.model.Book;
+import com.foalex.bookstore.dto.BookDto;
+import com.foalex.bookstore.dto.CreateBookRequestDto;
 import java.util.List;
 
 public interface BookService {
-    Book save(Book book);
+    BookDto save(CreateBookRequestDto requestDTo);
 
-    List<Book> findAll();
+    List<BookDto> findAll();
+
+    BookDto getById(Long id);
 }

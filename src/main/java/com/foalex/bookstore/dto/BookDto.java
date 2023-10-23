@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import lombok.Data;
 
 @Data
-public class CreateBookRequestDTO {
+public class BookDto {
+    private Long id;
+
     private String title;
 
     private String author;
