@@ -3,11 +3,12 @@ package com.foalex.bookstore.service;
 import com.foalex.bookstore.dto.BookDto;
 import com.foalex.bookstore.dto.CreateBookRequestDto;
 import java.util.List;
+import org.springframework.data.domain.Pageable;
 
 public interface BookService {
     BookDto save(CreateBookRequestDto requestDTo);
 
-    List<BookDto> findAll();
+    List<BookDto> findAll(Pageable pageable);
 
     BookDto getById(Long id);
 
