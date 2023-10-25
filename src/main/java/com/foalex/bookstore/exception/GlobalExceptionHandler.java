@@ -39,10 +39,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(body, headers, status);
     }
 
-    @ExceptionHandler(value = {EntityNotFoundException.class,
-                               DataProcessingException.class,
-                               DataIntegrityViolationException.class})
-    protected ResponseEntity<Object> handleCustomExceptions(RuntimeException ex) {
+    @ExceptionHandler(value = EntityNotFoundException.class)
+    protected ResponseEntity<Object> handleEntityNotFoundException(RuntimeException ex) {
+        HttpStatus status = determineHttpStatus(ex);
+        Map<String, Object> body = createResponseBody(status, List.of(ex));
+        return new ResponseEntity<>(body, status);
+    }
+
+    @ExceptionHandler(value = DataProcessingException.class)
+    protected ResponseEntity<Object> handleDataProcessingException(RuntimeException ex) {
+        HttpStatus status = determineHttpStatus(ex);
+        Map<String, Object> body = createResponseBody(status, List.of(ex));
+        return new ResponseEntity<>(body, status);
+    }
+
+    @ExceptionHandler(value = DataIntegrityViolationException.class)
+    protected ResponseEntity<Object> handleDataIntegrityViolationException(RuntimeException ex) {
         HttpStatus status = determineHttpStatus(ex);
         Map<String, Object> body = createResponseBody(status, List.of(ex));
         return new ResponseEntity<>(body, status);

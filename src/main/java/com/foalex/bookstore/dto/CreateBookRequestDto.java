@@ -1,7 +1,7 @@
 package com.foalex.bookstore.dto;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -23,7 +23,7 @@ public class CreateBookRequestDto {
     private String isbn;
 
     @NotNull
-    @Positive
+    @Min(0)
     private BigDecimal price;
 
     @Length(max = 1028)
