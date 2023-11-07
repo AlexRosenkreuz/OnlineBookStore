@@ -38,6 +38,7 @@ public class BookController {
             description = "Retrieves books with pagination and sorting by fields."
     )
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('USER')")
     public List<BookDto> getAll(@ParameterObject @PageableDefault Pageable pageable) {
         return bookService.findAll(pageable);
@@ -48,6 +49,7 @@ public class BookController {
             description = "Gets a book with specified id."
     )
     @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('USER')")
     public BookDto getBookById(@PathVariable @Positive Long id) {
         return bookService.getById(id);
@@ -69,7 +71,7 @@ public class BookController {
             description = "Updates existing book's fields."
     )
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN')")
     public BookDto updateBook(
             @PathVariable @Positive Long id, @RequestBody @Valid CreateBookRequestDto bookDto
