@@ -1,19 +1,16 @@
 package com.foalex.bookstore.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
-import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
-@Data
-public class CreateBookRequestDto {
-    private String title;
-
-    private String author;
-
-    private String isbn;
-
-    private BigDecimal price;
-
-    private String description;
-
-    private String coverImage;
+public record CreateBookRequestDto(
+        @NotBlank @Length(max = 128) String title,
+        @NotBlank @Length(max = 128) String author,
+        @NotBlank @Length(max = 128) String isbn,
+        @NotNull @Positive BigDecimal price,
+        @Length(max = 1024) String description,
+        @Length(max = 128) String coverImage) {
 }
