@@ -2,7 +2,7 @@ package com.foalex.bookstore.security;
 
 import com.foalex.bookstore.dto.user.UserLoginRequestDto;
 import com.foalex.bookstore.dto.user.UserLoginResponseDto;
-import com.foalex.bookstore.jwt.JwtUtil;
+import com.foalex.bookstore.security.jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

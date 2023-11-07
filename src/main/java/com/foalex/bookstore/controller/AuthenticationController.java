@@ -26,10 +26,8 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
     @Operation(
-            summary = "Login to the system",
-            description = """
-                    Login to the system using email and password.
-                     In response, the JWT token is returned"""
+            summary = "Login into the system",
+            description = "Login into the system using email and password."
     )
     @PostMapping("/login")
     public UserLoginResponseDto login(@RequestBody @Valid UserLoginRequestDto request) {
@@ -37,10 +35,8 @@ public class AuthenticationController {
     }
 
     @Operation(
-            summary = "Register new user to the system",
-            description = """
-                    Register new user to the system using email, firstName, lastName,
-                     shippingAddress and passwords. All fields are validated"""
+            summary = "Register new user",
+            description = "Register new user using email, firstName, lastName, shippingAddress and passwords."
     )
     @PostMapping("/register")
     public UserResponseDto register(@RequestBody @Valid UserRegistrationRequestDto request)

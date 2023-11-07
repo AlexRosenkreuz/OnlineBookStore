@@ -9,6 +9,6 @@ spring:
 bookstore:
   openapi:
     dev-url: http://localhost:8080
-  jwt:
-    expiration: 12000000
-    secret: vkvkvfigduj80987+3/*sfafghbhhasfoalexgayejfiu893u~ööå.öl
+jwt:
+  expiration: 200000000
+  secret: vkvkvfigduj80987+3/*sfafghbhhasfoalexgayejfiu893u

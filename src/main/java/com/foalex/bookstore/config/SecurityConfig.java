@@ -1,10 +1,7 @@
 package com.foalex.bookstore.config;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
-
-import com.foalex.bookstore.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
+import com.foalex.bookstore.security.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,16 +37,15 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                antMatcher("/api/auth/**"),
-                                antMatcher("/error"),
-                                antMatcher("/swagger-ui/**"),
-                                antMatcher("/v3/api-docs/**")
+                                "/api/auth/**",
+                                "/error",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**"
                         )
                         .permitAll()
                         .anyRequest()
                         .authenticated()
                 )
-                .httpBasic(withDefaults())
                 .sessionManagement(
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(

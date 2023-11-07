@@ -1,7 +1,7 @@
 package com.foalex.bookstore.security;
 
-import com.foalex.bookstore.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import com.foalex.bookstore.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

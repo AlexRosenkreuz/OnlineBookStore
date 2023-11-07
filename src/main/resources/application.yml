@@ -1,17 +1,17 @@
 spring:
-    datasource:
-        url: jdbc:mysql://localhost:3306/bookstore?serverTimezone=UTC
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        username: root
-        password: yellowihor32
-    jpa:
-        hibernate:
-            ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://localhost:3306/bookstore?serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: yellowihor32
+  jpa:
+    hibernate:
+      ddl-auto: validate
     show-sql: true
     open-in-view: false
 bookstore:
-    openapi:
-        dev-url: http://localhost:8080
-    jwt:
-        expiration: 12000000
-        secret: vkvkvfigduj80987+3/*sfafghbhhasfoalexgayejfiu893u~ööå.öl
+  openapi:
+    dev-url: http://localhost:8080
+jwt:
+  expiration: 200000000
+  secret: vkvkvfigduj80987+3/*sfafghbhhasfoalexgayejfiu893u

@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: add-default-roles-to-db
-      author: Alex-Rosenkreuz
+      author: AlexRosenkreuz
       changes:
         - insert:
             tableName: roles

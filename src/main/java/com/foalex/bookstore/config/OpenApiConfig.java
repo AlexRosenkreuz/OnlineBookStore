@@ -31,7 +31,7 @@ public class OpenApiConfig {
                 .title("Online Book Store Management API")
                 .version("1.0")
                 .contact(contact)
-                .description("This API exposes endpoints of the Online Book Store.");
+                .description("This API exposes endpoints to book store.");
 
         return new OpenAPI()
                 .info(info)
