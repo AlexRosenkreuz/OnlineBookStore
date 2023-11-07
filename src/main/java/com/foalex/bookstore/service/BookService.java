@@ -1,7 +1,7 @@
 package com.foalex.bookstore.service;
 
-import com.foalex.bookstore.dto.BookDto;
-import com.foalex.bookstore.dto.CreateBookRequestDto;
+import com.foalex.bookstore.dto.book.BookDto;
+import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import java.util.List;
 import org.springframework.data.domain.Pageable;
 

@@ -1,7 +1,7 @@
 package com.foalex.bookstore.service.impl;
 
-import com.foalex.bookstore.dto.BookDto;
-import com.foalex.bookstore.dto.CreateBookRequestDto;
+import com.foalex.bookstore.dto.book.BookDto;
+import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import com.foalex.bookstore.exception.EntityNotFoundException;
 import com.foalex.bookstore.mapper.BookMapper;
 import com.foalex.bookstore.model.Book;

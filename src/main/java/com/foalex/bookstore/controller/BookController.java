@@ -1,7 +1,7 @@
 package com.foalex.bookstore.controller;
 
-import com.foalex.bookstore.dto.BookDto;
-import com.foalex.bookstore.dto.CreateBookRequestDto;
+import com.foalex.bookstore.dto.book.BookDto;
+import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import com.foalex.bookstore.service.BookService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
