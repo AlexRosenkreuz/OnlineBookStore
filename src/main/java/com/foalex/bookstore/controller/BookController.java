@@ -2,6 +2,7 @@ package com.foalex.bookstore.controller;
 
 import com.foalex.bookstore.dto.book.BookDto;
 import com.foalex.bookstore.dto.book.CreateBookRequestDto;
+import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import com.foalex.bookstore.service.BookService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -74,7 +75,7 @@ public class BookController {
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN')")
     public BookDto updateBook(
-            @PathVariable @Positive Long id, @RequestBody @Valid CreateBookRequestDto bookDto
+            @PathVariable @Positive Long id, @RequestBody @Valid UpdateBookRequestDto bookDto
     ) {
         return bookService.update(id, bookDto);
     }

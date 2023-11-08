@@ -3,6 +3,8 @@ package com.foalex.bookstore.service;
 import com.foalex.bookstore.dto.book.BookDto;
 import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import java.util.List;
+
+import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import org.springframework.data.domain.Pageable;
 
 public interface BookService {
@@ -12,7 +14,7 @@ public interface BookService {
 
     BookDto getById(Long id);
 
-    BookDto update(Long id, CreateBookRequestDto requestDto);
+    BookDto update(Long id, UpdateBookRequestDto requestDto);
 
     void delete(Long id);
 
