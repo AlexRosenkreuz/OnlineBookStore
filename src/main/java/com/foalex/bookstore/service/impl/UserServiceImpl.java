@@ -1,20 +1,19 @@
 package com.foalex.bookstore.service.impl;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
-import com.foalex.bookstore.mapper.UserMapper;
-import com.foalex.bookstore.service.UserService;
-import lombok.RequiredArgsConstructor;
 import com.foalex.bookstore.dto.user.UserRegistrationRequestDto;
 import com.foalex.bookstore.dto.user.UserResponseDto;
 import com.foalex.bookstore.exception.RegistrationException;
+import com.foalex.bookstore.mapper.UserMapper;
 import com.foalex.bookstore.model.Role;
 import com.foalex.bookstore.model.RoleName;
 import com.foalex.bookstore.model.User;
 import com.foalex.bookstore.repository.RoleRepository;
 import com.foalex.bookstore.repository.UserRepository;
+import com.foalex.bookstore.service.UserService;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

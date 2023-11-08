@@ -1,7 +1,7 @@
 package com.foalex.bookstore.config;
 
-import lombok.RequiredArgsConstructor;
 import com.foalex.bookstore.security.jwt.JwtAuthenticationFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
