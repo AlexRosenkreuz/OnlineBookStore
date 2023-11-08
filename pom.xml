@@ -8,8 +8,8 @@
         <version>3.1.5</version>
         <relativePath/>
     </parent>
-    <groupId>maksym.fedorenko</groupId>
-    <artifactId>book-store</artifactId>
+    <groupId>com.foalex</groupId>
+    <artifactId>bookstore</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>online-book-store</name>
     <description>online-book-store</description>
