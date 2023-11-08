@@ -81,7 +81,7 @@ public class BookController {
     }
 
     @Operation(
-            summary = "Deletes book by id",
+            summary = "Deletes a book by id",
             description = "Deletes a book with specified id."
     )
     @DeleteMapping("/{id}")
