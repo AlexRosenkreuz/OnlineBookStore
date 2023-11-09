@@ -1,6 +1,7 @@
 package com.foalex.bookstore.service.impl;
 
 import com.foalex.bookstore.dto.book.BookDto;
+import com.foalex.bookstore.dto.book.BookDtoWithoutCategories;
 import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import com.foalex.bookstore.exception.EntityNotFoundException;
@@ -62,6 +63,14 @@ public class BookServiceImpl implements BookService {
                              %s operation failed.
                              Book with id %d doesn't exist."""
                         .formatted(operation, id)));
+    }
+
+    @Override
+    public List<BookDtoWithoutCategories> findBooksByCategoryId(Long id, Pageable pageable) {
+        return bookRepository.findAllByCategoriesId(id, pageable)
+                .stream()
+                .map(bookMapper::toDtoWithoutCategories)
+                .toList();
     }
 
     private void addBookCategories(List<Long> categoryIds, Book book) {

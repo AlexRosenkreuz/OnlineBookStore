@@ -1,6 +1,5 @@
 package com.foalex.bookstore.controller;
 
-import com.foalex.bookstore.dto.book.BookDtoWithoutCategories;
 import com.foalex.bookstore.dto.category.CategoryDto;
 import com.foalex.bookstore.dto.category.CreateCategoryRequestDto;
 import com.foalex.bookstore.dto.category.UpdateCategoryRequestDto;
@@ -76,7 +75,8 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN')")
     public CategoryDto updateCategory(
-            @PathVariable @Positive Long id, @RequestBody @Valid UpdateCategoryRequestDto categoryDto
+            @PathVariable @Positive Long id,
+            @RequestBody @Valid UpdateCategoryRequestDto categoryDto
     ) {
         return categoryService.update(id, categoryDto);
     }
@@ -90,17 +90,5 @@ public class CategoryController {
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteCategory(@PathVariable @Positive Long id) {
         categoryService.delete(id);
-    }
-
-    @Operation(
-            summary = "Retrieves books by category",
-            description = "Retrieves books by their category id with pagination and sorting."
-    )
-    @GetMapping("/{id}/books")
-    @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasRole('USER')")
-    public List<BookDtoWithoutCategories> getBooksByCategoryId(
-            @PathVariable @Positive Long id, Pageable pageable) {
-        return categoryService.findBooksByCategoryId(id, pageable);
     }
 }

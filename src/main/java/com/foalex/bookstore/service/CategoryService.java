@@ -1,6 +1,5 @@
 package com.foalex.bookstore.service;
 
-import com.foalex.bookstore.dto.book.BookDtoWithoutCategories;
 import com.foalex.bookstore.dto.category.CategoryDto;
 import com.foalex.bookstore.dto.category.CreateCategoryRequestDto;
 import com.foalex.bookstore.dto.category.UpdateCategoryRequestDto;
@@ -17,6 +16,4 @@ public interface CategoryService {
     CategoryDto update(Long id, UpdateCategoryRequestDto requestDto);
 
     void delete(Long id);
-
-    List<BookDtoWithoutCategories> findBooksByCategoryId(Long id, Pageable pageable);
 }

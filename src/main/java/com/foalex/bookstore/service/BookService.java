@@ -5,8 +5,6 @@ import com.foalex.bookstore.dto.book.BookDtoWithoutCategories;
 import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import java.util.List;
-
-import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import org.springframework.data.domain.Pageable;
 
 public interface BookService {
@@ -19,4 +17,6 @@ public interface BookService {
     BookDto update(Long id, UpdateBookRequestDto requestDto);
 
     void delete(Long id);
+
+    List<BookDtoWithoutCategories> findBooksByCategoryId(Long id, Pageable pageable);
 }
