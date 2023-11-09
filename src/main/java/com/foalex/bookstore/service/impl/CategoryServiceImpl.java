@@ -67,7 +67,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<BookDtoWithoutCategories> findBooksByCategoryId(Long id, Pageable pageable) {
-        if (!categoryRepository.existsById(id)) {
+        if (categoryRepository.existsById(id)) {
             return bookRepository.findAllByCategoriesId(id, pageable)
                     .stream()
                     .map(bookMapper::toDtoWithoutCategories)
