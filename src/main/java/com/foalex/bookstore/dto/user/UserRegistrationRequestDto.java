@@ -1,10 +1,10 @@
 package com.foalex.bookstore.dto.user;
 
+import com.foalex.bookstore.validation.FieldsValid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import com.foalex.bookstore.validation.FieldsValid;
 
 @FieldsValid(
         field = "password",
