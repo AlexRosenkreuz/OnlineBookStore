@@ -1,17 +1,12 @@
 package com.foalex.bookstore.dto.book;
 
 import java.math.BigDecimal;
-import java.util.List;
-import lombok.Data;
 
-@Data
-public class BookDto {
-    private Long id;
-    private String title;
-    private String author;
-    private String isbn;
-    private BigDecimal price;
-    private String description;
-    private String coverImage;
-    private List<Long> categoryIds;
+public record BookDto(
+        String title,
+        String author,
+        String isbn,
+        BigDecimal price,
+        String description,
+        String coverImage) {
 }
