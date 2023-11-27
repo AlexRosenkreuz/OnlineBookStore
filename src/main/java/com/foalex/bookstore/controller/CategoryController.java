@@ -76,7 +76,8 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN')")
     public CategoryDto updateCategory(
-            @PathVariable @Positive Long id, @RequestBody @Valid UpdateCategoryRequestDto categoryDto
+            @PathVariable @Positive Long id,
+            @RequestBody @Valid UpdateCategoryRequestDto categoryDto
     ) {
         return categoryService.update(id, categoryDto);
     }
