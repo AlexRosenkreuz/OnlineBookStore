@@ -37,12 +37,12 @@ public class AuthenticationController {
     @Operation(
             summary = "Register new user",
             description = """
-                    Register new user using 
-                    -email,
-                    -passwords, 
-                    -firstName, 
-                    -lastName, 
-                    -shippingAddress."""
+                          Register new user using 
+                          email, 
+                          firstName, 
+                          lastName, 
+                          shippingAddress, 
+                          password."""
     )
     @PostMapping("/register")
     public UserResponseDto register(@RequestBody @Valid UserRegistrationRequestDto request)
