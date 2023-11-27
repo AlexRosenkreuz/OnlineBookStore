@@ -21,10 +21,15 @@ public class Role implements GrantedAuthority {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
-    private RoleName name;
+    private Name name;
 
     @Override
     public String getAuthority() {
         return "ROLE_" + name.name();
+    }
+
+    public enum Name {
+        ADMIN,
+        USER
     }
 }

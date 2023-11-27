@@ -2,6 +2,7 @@ package com.foalex.bookstore.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import java.util.Objects;
 import org.springframework.beans.BeanWrapperImpl;
 
 public class FieldsValidator
@@ -15,15 +16,8 @@ public class FieldsValidator
     }
 
     public boolean isValid(Object value, ConstraintValidatorContext context) {
-        Object fieldValue = new BeanWrapperImpl(value)
-                .getPropertyValue(field);
-        Object fieldMatchValue = new BeanWrapperImpl(value)
-                .getPropertyValue(fieldMatch);
-
-        if (fieldValue != null) {
-            return fieldValue.equals(fieldMatchValue);
-        } else {
-            return fieldMatchValue == null;
-        }
+        Object password = new BeanWrapperImpl(value).getPropertyValue(field);
+        Object repeatPassword = new BeanWrapperImpl(value).getPropertyValue(fieldMatch);
+        return password != null && Objects.equals(password, repeatPassword);
     }
 }
