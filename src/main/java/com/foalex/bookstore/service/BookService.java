@@ -4,6 +4,8 @@ import com.foalex.bookstore.dto.book.BookDto;
 import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import java.util.List;
+
+import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import org.springframework.data.domain.Pageable;
 
 public interface BookService {
