@@ -1,6 +1,7 @@
 package com.foalex.bookstore.service.impl;
 
 import com.foalex.bookstore.dto.book.BookDto;
+import com.foalex.bookstore.dto.book.BookDtoWithoutCategories;
 import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import com.foalex.bookstore.exception.EntityNotFoundException;
@@ -15,7 +16,6 @@ import java.util.List;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -33,7 +33,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDto> findAll(@PageableDefault Pageable pageable) {
+    public List<BookDto> findAll(Pageable pageable) {
         return bookRepository.findAll(pageable).stream()
                 .map(bookMapper::toDto)
                 .toList();
@@ -66,6 +66,14 @@ public class BookServiceImpl implements BookService {
                              Delete operation failed. 
                              Book with id %d doesn't exist.""".formatted(id)));
         bookRepository.delete(book);
+    }
+
+    @Override
+    public List<BookDtoWithoutCategories> findBooksByCategoryId(Long id, Pageable pageable) {
+        return bookRepository.findAllByCategoriesId(id, pageable)
+                .stream()
+                .map(bookMapper::toDtoWithoutCategories)
+                .toList();
     }
 
     private void addBookCategories(List<Long> categoryIds, Book book) {
