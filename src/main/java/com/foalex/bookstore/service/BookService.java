@@ -1,6 +1,7 @@
 package com.foalex.bookstore.service;
 
 import com.foalex.bookstore.dto.book.BookDto;
+import com.foalex.bookstore.dto.book.BookDtoWithoutCategories;
 import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import java.util.List;
