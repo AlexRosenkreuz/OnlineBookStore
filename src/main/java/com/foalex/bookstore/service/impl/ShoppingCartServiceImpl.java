@@ -3,7 +3,6 @@ package com.foalex.bookstore.service.impl;
 import com.foalex.bookstore.dto.shoppingcart.CreateCartItemRequestDto;
 import com.foalex.bookstore.dto.shoppingcart.ShoppingCartDto;
 import com.foalex.bookstore.dto.shoppingcart.UpdateCartItemRequestDto;
-import com.foalex.bookstore.exception.ItemAlreadyExistsException;
 import com.foalex.bookstore.exception.EntityNotFoundException;
 import com.foalex.bookstore.mapper.CartItemMapper;
 import com.foalex.bookstore.mapper.ShoppingCartMapper;

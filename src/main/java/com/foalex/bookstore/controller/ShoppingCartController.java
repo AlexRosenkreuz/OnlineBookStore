@@ -1,6 +1,5 @@
 package com.foalex.bookstore.controller;
 
-import com.foalex.bookstore.dto.shoppingcart.CartItemDto;
 import com.foalex.bookstore.dto.shoppingcart.CreateCartItemRequestDto;
 import com.foalex.bookstore.dto.shoppingcart.ShoppingCartDto;
 import com.foalex.bookstore.dto.shoppingcart.UpdateCartItemRequestDto;
@@ -81,6 +80,6 @@ public class ShoppingCartController {
     public ShoppingCartDto deleteCartItem(
             Authentication authentication,
             @Positive @PathVariable Long cartItemId) {
-        shoppingCartService.deleteCartItem(authentication, cartItemId);
+        return shoppingCartService.deleteCartItem(authentication, cartItemId);
     }
 }

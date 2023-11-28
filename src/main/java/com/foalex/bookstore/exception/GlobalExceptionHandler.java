@@ -61,10 +61,4 @@ public class GlobalExceptionHandler {
     protected ErrorResponseWrapper handleRegistrationException(RegistrationException ex) {
         return new ErrorResponseWrapper(LocalDateTime.now(), "conflict", ex.getMessage());
     }
-
-    @ExceptionHandler(value = RegistrationException.class)
-    @ResponseStatus(HttpStatus.CONFLICT)
-    protected ErrorResponseWrapper handleItemAlreadyExistsException(ItemAlreadyExistsException ex) {
-        return new ErrorResponseWrapper(LocalDateTime.now(), "conflict", ex.getMessage());
-    }
 }

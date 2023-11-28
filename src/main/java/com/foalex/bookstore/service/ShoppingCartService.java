@@ -1,6 +1,5 @@
 package com.foalex.bookstore.service;
 
-import com.foalex.bookstore.dto.shoppingcart.CartItemDto;
 import com.foalex.bookstore.dto.shoppingcart.CreateCartItemRequestDto;
 import com.foalex.bookstore.dto.shoppingcart.ShoppingCartDto;
 import com.foalex.bookstore.dto.shoppingcart.UpdateCartItemRequestDto;
