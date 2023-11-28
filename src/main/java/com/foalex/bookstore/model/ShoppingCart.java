@@ -9,7 +9,9 @@ import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,6 +24,8 @@ public class ShoppingCart {
     @Id
     private Long id;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", nullable = false)
@@ -29,6 +33,25 @@ public class ShoppingCart {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "shoppingCart", cascade = CascadeType.REMOVE, orphanRemoval = true)
-    private Set<CartItem> cartItems = new HashSet<>();
+    @OneToMany(mappedBy = "shoppingCart", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> cartItems = new ArrayList<>();
+
+    public void addCartItem(CartItem cartItem) {
+        cartItems.add(cartItem);
+        cartItem.setShoppingCart(this);
+    }
+
+    public void removeCartItem(CartItem cartItem) {
+        cartItems.remove(cartItem);
+        cartItem.setShoppingCart(null);
+    }
+
+    public void clear() {
+        cartItems.forEach(item -> item.setShoppingCart(null));
+        cartItems.clear();
+    }
+
+    public int size() {
+        return cartItems.size();
+    }
 }
