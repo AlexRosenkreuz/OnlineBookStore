@@ -31,6 +31,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     private final CartItemMapper cartItemMapper;
 
     @Override
+    @Transactional
     public ShoppingCartDto getUserCart(Authentication authentication) {
         ShoppingCart cart = getUserShoppingCart(authentication);
         return shoppingCartMapper.toDto(cart);

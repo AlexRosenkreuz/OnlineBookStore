@@ -11,6 +11,7 @@ import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.Mappings;
 import org.mapstruct.NullValueCheckStrategy;
 
 @Mapper(
@@ -23,7 +24,13 @@ public interface OrderMapper {
     @Mapping(target = "userId", source = "user.id")
     OrderDto toDto(Order order);
 
-    @Mapping(target = "id", ignore = true)
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "deleted", ignore = true),
+            @Mapping(target = "status", ignore = true),
+            @Mapping(target = "total", ignore = true),
+            @Mapping(target = "orderDate", ignore = true)
+    })
     @Mapping(target = "orderItems", source = "cart.cartItems")
     Order toOrder(ShoppingCart cart, CreateOrderRequestDto requestDto);
 

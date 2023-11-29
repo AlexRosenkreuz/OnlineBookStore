@@ -67,4 +67,11 @@ public class GlobalExceptionHandler {
     protected ErrorResponseWrapper handleCreateOrderException(CreateOrderException ex) {
         return new ErrorResponseWrapper(LocalDateTime.now(), "bad-request", ex.getMessage());
     }
+
+    @ExceptionHandler(value = OrderStatusInvalidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    protected ErrorResponseWrapper handleOrderStatusInvalidException(
+            OrderStatusInvalidException ex) {
+        return new ErrorResponseWrapper(LocalDateTime.now(), "bad-request", ex.getMessage());
+    }
 }

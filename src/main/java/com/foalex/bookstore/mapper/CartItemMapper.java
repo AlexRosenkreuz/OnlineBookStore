@@ -6,6 +6,7 @@ import com.foalex.bookstore.model.CartItem;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 import org.mapstruct.NullValueCheckStrategy;
 
 @Mapper(
@@ -18,5 +19,10 @@ public interface CartItemMapper {
     @Mapping(source = "book.title", target = "bookTitle")
     CartItemDto toDto(CartItem cartItem);
 
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "shoppingCart", ignore = true),
+            @Mapping(target = "book", ignore = true)
+    })
     CartItem toCartItem(CreateCartItemRequestDto requestDto);
 }

@@ -10,7 +10,9 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.Mappings;
 import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
@@ -20,12 +22,25 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
         nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS
 )
 public interface BookMapper {
+    @Mapping(target = "categoryIds", ignore = true)
     BookDto toDto(Book book);
 
     BookDtoWithoutCategories toDtoWithoutCategories(Book book);
 
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "deleted", ignore = true),
+            @Mapping(target = "categories", ignore = true),
+            @Mapping(target = "cartItems", ignore = true)
+    })
     Book toBook(CreateBookRequestDto bookRequestDto);
 
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "deleted", ignore = true),
+            @Mapping(target = "categories", ignore = true),
+            @Mapping(target = "cartItems", ignore = true)
+    })
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateBook(
             UpdateBookRequestDto updateBookRequestDto, @MappingTarget Book book

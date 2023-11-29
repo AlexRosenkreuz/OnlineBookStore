@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:${MYSQLDB_DATABASE}/bookstore?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/${MYSQL_DATABASE}?serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${MYSQLDB_USER}
-    password: ${MYSQLDB_PASSWORD}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate
