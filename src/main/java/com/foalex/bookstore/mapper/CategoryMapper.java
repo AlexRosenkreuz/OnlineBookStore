@@ -7,7 +7,9 @@ import com.foalex.bookstore.model.Category;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.Mappings;
 import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
@@ -19,8 +21,16 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 public interface CategoryMapper {
     CategoryDto toDto(Category category);
 
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "deleted", ignore = true)
+    })
     Category toCategory(CreateCategoryRequestDto requestDto);
 
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "deleted", ignore = true)
+    })
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void mapUpdateRequestToCategory(
             UpdateCategoryRequestDto updateBookRequestDto, @MappingTarget Category category

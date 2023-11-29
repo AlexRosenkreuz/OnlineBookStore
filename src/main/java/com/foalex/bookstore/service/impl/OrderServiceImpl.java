@@ -6,6 +6,7 @@ import com.foalex.bookstore.dto.order.OrderItemDto;
 import com.foalex.bookstore.dto.order.UpdateOrderRequestDto;
 import com.foalex.bookstore.exception.CreateOrderException;
 import com.foalex.bookstore.exception.EntityNotFoundException;
+import com.foalex.bookstore.exception.OrderStatusInvalidException;
 import com.foalex.bookstore.mapper.OrderItemMapper;
 import com.foalex.bookstore.mapper.OrderMapper;
 import com.foalex.bookstore.model.Order;
@@ -15,6 +16,7 @@ import com.foalex.bookstore.repository.OrderItemRepository;
 import com.foalex.bookstore.repository.OrderRepository;
 import com.foalex.bookstore.repository.ShoppingCartRepository;
 import com.foalex.bookstore.service.OrderService;
+import java.util.Arrays;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -83,7 +85,16 @@ public class OrderServiceImpl implements OrderService {
                 .orElseThrow(() -> new EntityNotFoundException(
                         "Order with id %d doesn't exist".formatted(id))
                 );
-        order.setStatus(requestDto.status());
+        try {
+            order.setStatus(Order.Status.valueOf(requestDto.status()));
+        } catch (IllegalArgumentException exception) {
+            throw new OrderStatusInvalidException("""
+                    Update operation failed.
+                    Invalid order status specified.
+                    Must be one of the following: %s"""
+                    .formatted(Arrays.toString(Order.Status.values()))
+            );
+        }
         return orderMapper.toDto(orderRepository.save(order));
     }
 }
