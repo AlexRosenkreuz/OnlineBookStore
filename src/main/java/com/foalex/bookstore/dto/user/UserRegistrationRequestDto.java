@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Size;
 @FieldsValid(
         field = "password",
         fieldMatch = "verifyPassword",
-        message = "Password mismatch"
+        message = "Passwords don't match"
 )
 public record UserRegistrationRequestDto(
         @NotNull @Email

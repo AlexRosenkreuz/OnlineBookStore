@@ -1,6 +1,7 @@
 package com.foalex.bookstore.service;
 
 import com.foalex.bookstore.dto.book.BookDto;
+import com.foalex.bookstore.dto.book.BookDtoWithoutCategories;
 import com.foalex.bookstore.dto.book.CreateBookRequestDto;
 import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import java.util.List;
@@ -16,4 +17,6 @@ public interface BookService {
     BookDto update(Long id, UpdateBookRequestDto requestDto);
 
     void delete(Long id);
+
+    List<BookDtoWithoutCategories> findBooksByCategoryId(Long id, Pageable pageable);
 }
