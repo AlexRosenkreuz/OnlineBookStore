@@ -1,18 +1,19 @@
 package com.foalex.bookstore.service;
 
-import com.foalex.bookstore.dto.BookDto;
-import com.foalex.bookstore.dto.CreateBookRequestDto;
+import com.foalex.bookstore.dto.book.BookDto;
+import com.foalex.bookstore.dto.book.CreateBookRequestDto;
+import com.foalex.bookstore.dto.book.UpdateBookRequestDto;
 import java.util.List;
 import org.springframework.data.domain.Pageable;
 
 public interface BookService {
-    BookDto save(CreateBookRequestDto requestDTo);
+    BookDto save(CreateBookRequestDto requestDto);
 
     List<BookDto> findAll(Pageable pageable);
 
     BookDto getById(Long id);
 
-    BookDto update(Long id, CreateBookRequestDto requestDto);
+    BookDto update(Long id, UpdateBookRequestDto requestDto);
 
     void delete(Long id);
 }
