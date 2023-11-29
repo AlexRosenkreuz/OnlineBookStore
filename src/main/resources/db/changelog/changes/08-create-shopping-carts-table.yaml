@@ -12,3 +12,14 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
+
+  - changeSet:
+      id: add-foreign-key-to-shopping-carts
+      author: AlexRosenkreuz
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: shopping_carts
+            baseColumnNames: id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_shopping_carts_users
