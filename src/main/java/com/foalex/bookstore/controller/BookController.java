@@ -58,6 +58,19 @@ public class BookController {
     }
 
     @Operation(
+            summary = "Retrieves books by category",
+            description = "Retrieves books by their category id with pagination and sorting."
+    )
+    @GetMapping("categories/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasRole('USER')")
+    public List<BookDtoWithoutCategories> getBooksByCategoryId(
+            @PathVariable @Positive Long id,
+            @ParameterObject @PageableDefault Pageable pageable) {
+        return bookService.findBooksByCategoryId(id, pageable);
+    }
+
+    @Operation(
             summary = "Creates a new book",
             description = "Creates a new book with specified fields."
     )
@@ -76,7 +89,8 @@ public class BookController {
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN')")
     public BookDto updateBook(
-            @PathVariable @Positive Long id, @RequestBody @Valid UpdateBookRequestDto bookDto
+            @PathVariable @Positive Long id,
+            @RequestBody @Valid UpdateBookRequestDto bookDto
     ) {
         return bookService.update(id, bookDto);
     }
@@ -90,17 +104,5 @@ public class BookController {
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteBook(@PathVariable @Positive Long id) {
         bookService.delete(id);
-    }
-
-    @Operation(
-            summary = "Retrieves books by category",
-            description = "Retrieves books by their category id with pagination and sorting."
-    )
-    @GetMapping("/{id}/books")
-    @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasRole('USER')")
-    public List<BookDtoWithoutCategories> getBooksByCategoryId(
-            @PathVariable @Positive Long id, Pageable pageable) {
-        return bookService.findBooksByCategoryId(id, pageable);
     }
 }
